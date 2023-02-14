@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="tyyli.css">
+		<meta charset="UTF-8">
+		<title>Kuvitteellinen yritys</title>
+
+	</head>	
+
+
+<body onload="getPageContent('home')">
+
+					<!-- Navigointi divi -->
+	<div style="width:10%; float: left;background: #eee;height: 100%;">
+		<ul>
+			<li style="line-height: 50px;">
+				<a href="#" onclick="getPageContent('etusivu')">
+					Etusivu
+				</a>
+			</li>
+			<li style="line-height: 50px;">
+				<a href="#" onclick="getPageContent('tietoa')">
+					Tietoa meistä
+				</a>
+			</li>
+			<li style="line-height: 50px;">
+				<a href="#" onclick="getPageContent('palvelut')">
+					Palvelut
+				</a>
+			</li>
+			<li style="line-height: 50px;">
+				<a href="#" onclick="getPageContent('yhteystiedot')">
+					Yhteystiedot
+				</a>
+			</li>
+			<li style="line-height: 50px;">
+				<a href="#" onclick="getPageContent('henkilot')">
+					Työntekijät
+				</a>
+			</li>
+		</ul>
+
+	</div>
+
+							<!-- Main divi -->
+<div class="main" id="sisältö" style="width: 90%;float: right; background: #999;color:#fff; height: 100%;font-size: 50px;">
+
+
+</div>
+
+<script src="Funktiot.js"></script>
+</body>
+
+</html>
