@@ -14,7 +14,7 @@
     var pHenkilot = `<button onClick="haeHenkilotiedot()">Hae henkilöt</button>`;
 
     // Palautettava sisältö objekti
-    var pages = {
+    var sivut = {
         'etusivu' : `<h2>Tervetuloa!!</h2><br/><br/> ${pEtusivu}`,
         'tietoa' : `<h2>Tietoa meistä</h2><br/><br/>`,
         'tuotteet' : `<h2>Tuotteet</h2><br/><br/>`,
@@ -39,32 +39,33 @@ function haeHenkilotiedot() //Hakee henkilöt json tiedostosta
 
       setTimeout(() => {
         x += `</tbody></table>`
-      document.getElementById("sisältö").innerHTML = pHenkilot + x}
+      document.getElementById("sisalto").innerHTML = pHenkilot + x}
       , 500 )
 }
 
-function getPageContent(page) //Lataa sivuston sisällön
+function lataaSivunSisalto(sivu) //Lataa sivuston sisällön.. DataFlow tämän funktion kautta!!
 {
-    var contentToReturn;
-    switch(page){
+    let palautettavaSisalto;
+    switch(sivu)
+    {
         case 'etusivu':
-            contentToReturn = pages.etusivu;
+            palautettavaSisalto = sivut.etusivu;
             break;
         case 'tietoa':
-            contentToReturn = pages.tietoa;
+            palautettavaSisalto = sivut.tietoa;
             break;
         case 'tuotteet':
-            contentToReturn = pages.tuotteet;
+            palautettavaSisalto = sivut.tuotteet;
             break;
         case 'yhteystiedot':
-            contentToReturn = pages.yhteystiedot;
+            palautettavaSisalto = sivut.yhteystiedot;
             break;
         case 'henkilot':
-            contentToReturn = pages.henkilot;
+            palautettavaSisalto = sivut.henkilot;
             break;
         default:
-            contentToReturn = pages.etusivu;
+            palautettavaSisalto = sivut.etusivu;
             break;				
     }
-    document.getElementById('sisältö').innerHTML = contentToReturn; 
+    document.getElementById('sisalto').innerHTML = palautettavaSisalto; 
 }
