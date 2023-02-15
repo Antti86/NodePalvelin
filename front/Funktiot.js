@@ -3,17 +3,23 @@
 
     //Sisältö stringit
 
-    var pEtusivu = `<p >efefsdfdsfsdfsdfsdfsdfsdf<p>`;
+    let pEtusivu = `<p >efefsdfdsfsdfsdfsdfsdfsdf<p>`;
 
-    var henkilot = `<button onClick="haeHenkilotiedot()">Hae henkilöt</button>`;
+    let pTietoa = `<p >efefsdfdsfsdfsdfsdfsdfsdf<p>`;
 
+    let pTuotteet = ``;
 
+    let pYhteystiedot = ``;
+
+    var pHenkilot = `<button onClick="haeHenkilotiedot()">Hae henkilöt</button>`;
+
+    // Palautettava sisältö objekti
     var pages = {
-        'etusivu' : `Tervetuloa!!<br/><br/> ${pEtusivu}`,
-        'tietoa' : `Tietoa meistä<br/><br/>`,
-        'palvelut' : `Palvelut<br/><br/>`,
-        'yhteystiedot' : `Yhteystiedot<br/><br/>`,
-        'henkilot' : `Työntekijät<br/><br/> ${henkilot}`
+        'etusivu' : `<h2>Tervetuloa!!</h2><br/><br/> ${pEtusivu}`,
+        'tietoa' : `<h2>Tietoa meistä</h2><br/><br/>`,
+        'tuotteet' : `<h2>Tuotteet</h2><br/><br/>`,
+        'yhteystiedot' : `<h2>Yhteystiedot</h2><br/><br/>`,
+        'henkilot' : `Työntekijät<br/><br/> ${pHenkilot}`
     };
 
    
@@ -33,7 +39,7 @@ function haeHenkilotiedot() //Hakee henkilöt json tiedostosta
 
       setTimeout(() => {
         x += `</tbody></table>`
-      document.getElementById("sisältö").innerHTML = henkilot + x}
+      document.getElementById("sisältö").innerHTML = pHenkilot + x}
       , 500 )
 }
 
@@ -47,8 +53,8 @@ function getPageContent(page) //Lataa sivuston sisällön
         case 'tietoa':
             contentToReturn = pages.tietoa;
             break;
-        case 'palvelut':
-            contentToReturn = pages.palvelut;
+        case 'tuotteet':
+            contentToReturn = pages.tuotteet;
             break;
         case 'yhteystiedot':
             contentToReturn = pages.yhteystiedot;
