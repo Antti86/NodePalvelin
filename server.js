@@ -4,7 +4,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-const henkilotiedot = require('./henkilotiedot.json');
+const tietokanta = require('./Tietokanta.json');
 
 
 const polku = path.join(__dirname, './front');
@@ -13,8 +13,8 @@ app.use(express.static(polku));
 
 
 
-app.get('/api/henkilotiedot', (req, res) => {
-    res.json(henkilotiedot)
+app.get('/api/Tietokanta', (req, res) => {
+    res.json(tietokanta)
     })
 
 
