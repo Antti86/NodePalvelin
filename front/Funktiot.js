@@ -23,9 +23,9 @@
     var sivut = {
         'etusivu' : `<h2>Tervetuloa!!</h2><br/><br/> ${pEtusivu}`,
         'tietoa' : `<h2>Tietoa meistä</h2><br/><br/> ${pTietoa}`,
-        'tuotteet' : `<h2>Tuotteet</h2><br/><br/>`,
+        'tuotteet' : `<h2>Tuotteet</h2>`,
         'yhteystiedot' : `<h2>Yhteystiedot</h2><br/><br/>`,
-        'henkilot' : `Työntekijät<br/><br/>`
+        'henkilot' : `<h2>Työntekijät</h2>`
     };
 
    
@@ -42,10 +42,14 @@ function haeHenkilot() //Hakee, kasaa ja liittää henkilötieto taulun sivustol
 {
     haeFetchLupaus().then((data) => {
         let x = ""
-        const pHenkiloAlku = "<table><thead><th>Etunimi</th><th>Sukunimi</th><th>Työtehtävä</th></thead><tbody>";
-        const pHenkiloLoppu = `</tbody></table>`;
+        // const pHenkiloAlku = `<table class="taulu"><thead><th>Etunimi</th><th>Sukunimi</th><th>Työtehtävä</th></thead><tbody>`;
+        const pHenkiloAlku = `<div class="yhteystiedot">`
+        const pHenkiloLoppu = `</div>`;
         data.Henkilotiedot.map(henk => {
-            x += `<tr><td>${henk.etunimi}</td><td>${henk.sukunimi}</td><td>${henk.tyotehtava} </td></tr>`
+            // x += `${henk.etunimi}${henk.sukunimi}${henk.tyotehtava}`
+            x += `<div class="henkilöt">
+            <h3>${henk.tyotehtava}</h3><p>${henk.etunimi} ${henk.sukunimi}</p> <p>${henk.puhelinnumero}</p>
+            </div>`
         })
         pHenkilot = pHenkiloAlku + x + pHenkiloLoppu;
         sivut.henkilot += pHenkilot;
@@ -60,12 +64,15 @@ function haeTuotteet() //Hakee, kasaa ja liittää tuotetieto taulun sivustolle
 {
     haeFetchLupaus().then((data) => {
         let x = ""
-        const alku = "<table><thead><th>Tuote</th><th>Hinta</th></thead><tbody>";
+        let tuotelkm = 0;
+        const alku = `<table class="taulu"><thead><th>Tuote</th><th>Hinta</th></thead><tbody>`;
         const loppu = `</tbody></table>`;
         data.Tuotteet.map(tuote => {
-            x += `<tr><td>${tuote.nimi}</td><td>${tuote.hinta}</td></tr>`
+            x += `<tr><td>${tuote.nimi}</td><td>${tuote.hinta}</td></tr>`;
+            tuotelkm++;
         })
         pTuotteet = alku + x + loppu;
+        sivut.tuotteet += `<p>(${tuotelkm})</p>`;
         sivut.tuotteet += pTuotteet;
     } )
     .catch(() => {

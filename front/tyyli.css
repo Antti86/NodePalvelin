@@ -1,0 +1,70 @@
+
+h2 {
+    text-align:center;
+}
+.navi{
+    width: 15%;
+    float: left;
+    background: #eee;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 1%;
+}
+
+.main {
+    box-sizing: border-box;
+    width: 85%;
+    float: left;
+    background:azure;
+    color:black;
+    height: 100%;
+    font-size: 50px;
+    padding: 1%;
+}
+
+li{
+    line-height: 100px;
+    font-size: 150%;
+}
+
+.taulu {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50%;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .taulu td, .taulu th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .taulu tr:nth-child(even){background-color: #f2f2f2;}
+  
+  .taulu tr:hover {background-color: #ddd;}
+  
+  .taulu th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+  }
+
+
+  .yhteystiedot{
+    color: black;
+    font-size: 20px;
+    text-align: center;
+}
+
+.henkilöt{
+    font-size: 100%;
+    float: left;
+    color: black;
+    border: 2px solid black;
+    width: 40%;
+    height: 200%;
+    margin: 2%;
+    border-radius: 5px;
+}
